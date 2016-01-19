@@ -10,6 +10,7 @@
 #include <functional>
 #include <vector>
 #include <cstdint>
+#include <complex>
 
 #include <mandel/pixel.h>
 #include <mandel/sequentiell.h>
@@ -66,6 +67,7 @@ namespace mandel
       }
       //*/
       //*
+#ifdef TBB_FOUND
       SECTION("compare TBB") {
         Picture<int> picture_test(view.width(), view.height());
         fill(begin(picture_test.data()), end(picture_test.data()), -99);
@@ -73,6 +75,7 @@ namespace mandel
         test_values_in_range(picture_test.data());
         REQUIRE(picture_test.data() == picture_seq.data());
       }
+#endif
       //*/
 
       /*
@@ -122,6 +125,7 @@ namespace mandel
       }
       */
       //*
+#ifdef TBB_FOUND
       SECTION("compare TBB") {
         Picture<int> picture_test(view.width(), view.height());
         fill(begin(picture_test.data()), end(picture_test.data()), -99);
@@ -129,6 +133,7 @@ namespace mandel
         test_values_in_range(picture_test.data());
         REQUIRE(picture_test.data() == picture_seq.data());
       }
+#endif
       //*/
 
     }

@@ -3,6 +3,9 @@ Win32/
 x64/
 build/
 
+# ignore extern to avoid license violations!
+extern/
+
 *.opensdf
 *.sdf
 *.suo
