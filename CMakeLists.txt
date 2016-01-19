@@ -53,10 +53,11 @@ if(Boost_FOUND)
   link_directories(${Boost_LIBRARY_DIRS})
 endif()
 
-include_directories(${CMAKE_SOURCE_DIR}/extern/vectorclass)
 # copy c++ vector class from agner for to /extern/vectorclass
-# and enable VECTORCLASS_FOUND
-set(VECTORCLASS_FOUND 0)
+if(EXISTS "${CMAKE_SOURCE_DIR}/extern/vectorclass/vectorclass.h")
+    include_directories(${CMAKE_SOURCE_DIR}/extern/vectorclass)
+    set(VECTORCLASS_FOUND 1)
+endif()    
 
 configure_file(cmake/config.h.in config.h @ONLY)
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
@@ -67,8 +68,11 @@ if(CMAKE_SIZEOF_VOID_P EQUAL 8)
 endif()
 
 add_subdirectory (demo)
-# copy catch.hpp to extern/catch and enable the tests
-#add_subdirectory (tests)
+
+# copy catch.hpp to extern/catch
+if(EXISTS "${CMAKE_SOURCE_DIR}/extern/catch/catch.hpp")
+    add_subdirectory (tests)
+endif()
 
 if(Boost_FOUND)
 # todo: add the sources for the ui demo

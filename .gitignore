@@ -11,3 +11,7 @@ extern/
 *.suo
 *.user
 stdafx.h.cpp
+
+# don't submit user build file
+runcmake.*
+compileit.*
