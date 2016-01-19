@@ -1,0 +1,16 @@
+#pragma once
+
+#cmakedefine BOOST_FOUND
+#cmakedefine TBB_FOUND
+#cmakedefine OPENMP_FOUND
+#cmakedefine AUTOVEC_ENABLED
+#cmakedefine PPL_ENABLED
+#cmakedefine AMP_ENABLED
+#cmakedefine VECTORCLASS_FOUND
+
+#cmakedefine AVX_ENABLED
+#cmakedefine AVX2_ENABLED
+
+#ifdef  _MSC_VER
+#define __SSE__
+#endif

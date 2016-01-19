@@ -1,0 +1,10 @@
+#
+Win32/
+x64/
+build/
+
+*.opensdf
+*.sdf
+*.suo
+*.user
+stdafx.h.cpp
