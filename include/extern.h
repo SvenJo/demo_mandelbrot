@@ -2,8 +2,12 @@
 
 #ifdef _MSC_VER
 #define _SCL_SECURE_NO_WARNINGS
+#ifndef NOMINMAX
+#define NOMINMAX
+#endif
 #endif
 
+#include <algorithm>
 #include <vector>
 #include <array>
 #include <chrono>
