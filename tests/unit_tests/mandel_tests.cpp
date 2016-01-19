@@ -185,6 +185,7 @@ namespace mandel
         TestPixelConvergence(pixelld);
       }
 
+#ifdef VECTORCLASS_FOUND
       SECTION("Pixel_Vec_SSE")
       {
         SECTION("float")
@@ -211,17 +212,15 @@ namespace mandel
 
           const auto res = pixeld(re, im);
           REQUIRE(100 == res[0]);
-          REQUIRE(100 == res[1]);          
+          REQUIRE(100 == res[1]);
         }
-
-        
       }
 
       SECTION("Pixel_Vec_AVX")
       {
-        
-      }
 
+      }
+#endif
 
     }
 
